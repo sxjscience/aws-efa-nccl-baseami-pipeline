@@ -2,6 +2,7 @@
   "variables": {
     "region": "us-east-1",
     "flag": "al2-base",
+    "subnet_id": "subnet-1226ea1c",
     "security_groupids": "sg-e282bbb5",
     "build_ami": "ami-02354e95b39ca8dec",
     "efa_pkg": "aws-efa-installer-latest.tar.gz",
@@ -17,6 +18,7 @@
     "run_tags": {
         "Name": "packer-gpu-processor-{{user `flag`}}"
     },
+    "subnet_id": "{{user `subnet_id`}}",
     "security_group_ids": "{{user `security_groupids`}}",
     "instance_type": "p3.8xlarge",
     "ssh_username": "ec2-user",
