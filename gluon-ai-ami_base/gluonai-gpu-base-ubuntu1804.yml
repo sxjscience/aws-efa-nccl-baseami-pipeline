@@ -205,13 +205,15 @@
     },
     {
     "type": "file",
-    "source": "conda_environments/gluonnlp.yml",
-    "destination": "/tmp/gluonnlp.yml"
+    "source": "conda_environments/gluon-toolkits.yml",
+    "destination": "/tmp/gluon-toolkits.yml"
     },
     {
-    "type": "file",
-    "source": "conda_environments/gluoncv.yml",
-    "destination": "/tmp/gluoncv.yml"
-    }
+    "type": "shell",
+    "inline_shebang": "/bin/bash -xe",
+    "inline": [
+      "conda env create -f /tmp/gluon-toolkits.yml",
+    ]
+    },
     ]
 }
