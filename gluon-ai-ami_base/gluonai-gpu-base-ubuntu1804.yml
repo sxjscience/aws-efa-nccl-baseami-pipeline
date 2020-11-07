@@ -212,7 +212,7 @@
     "type": "shell",
     "inline_shebang": "/bin/bash -xe",
     "inline": [
-      "conda env create -f /tmp/gluon-toolkits.yml",
+      "conda env create -f /tmp/gluon-toolkits.yml"
     ]
     },
     ]
