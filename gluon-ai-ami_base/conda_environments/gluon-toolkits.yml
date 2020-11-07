@@ -3,9 +3,7 @@ dependencies:
 - python=3.7
 - graphviz
 - pip:
-  - gluoncv
   - gluonnlp
-  - gluonts
   - jupyter-sphinx>=0.2.2
   - "mxnet_cu110<2.0.0" --find-links https://dist.mxnet.io/python
   - nose
