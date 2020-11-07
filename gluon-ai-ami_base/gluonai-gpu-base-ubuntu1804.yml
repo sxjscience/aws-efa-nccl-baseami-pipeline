@@ -204,12 +204,12 @@
     ]
     },
     {
-    "type": "file"
+    "type": "file",
     "source": "conda_environments/gluonnlp.yml",
     "destination": "/tmp/gluonnlp.yml"
     },
     {
-    "type": "file"
+    "type": "file",
     "source": "conda_environments/gluoncv.yml",
     "destination": "/tmp/gluoncv.yml"
     }
