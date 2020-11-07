@@ -214,6 +214,6 @@
     "inline": [
       "conda env create -f /tmp/gluon-toolkits.yml"
     ]
-    },
+    }
     ]
 }
