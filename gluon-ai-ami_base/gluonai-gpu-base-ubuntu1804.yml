@@ -205,7 +205,7 @@
       "pip install tensorflow",
       "pip install --upgrade jax jaxlib==0.1.57+cuda110 -f https://storage.googleapis.com/jax-releases/jax_releases.html",
       "pip install sagemaker-training",
-      "python3 -m pip install -U --pre \"mxnet-cu110>=2.0.0b20201101\" -f https://dist.mxnet.io/python",
+      "pip install -U --pre \"mxnet-cu110>=2.0.0b20201101\" -f https://dist.mxnet.io/python"
     ]
     },
     {
