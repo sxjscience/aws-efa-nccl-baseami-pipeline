@@ -192,22 +192,78 @@
       "sudo systemctl enable aws-gpu-boost-clock.service && sudo systemctl start aws-gpu-boost-clock.service"]
     },
     {
-    "type": "file",
-    "source": "conda_environments/gluon-toolkits.yml",
-    "destination": "/tmp/gluon-toolkits.yml"
+    "type": "shell",
+    "inline_shebang": "/bin/bash -xe",
+    "inline": [
+      "sudo apt-get install python3-venv llvm",
+      "python3 -m venv --system-site-packages env/nlp-1.0",
+      "source ~/env/nlp-1.0/bin/activate",
+      "pip install --upgrade pip",
+      "pip install ipython",
+      "pip install torch==1.7.0+cu110 torchvision==0.8.1+cu110 torchaudio===0.7.0 -f https://download.pytorch.org/whl/torch_stable.html",
+      "pip install deepspeed",
+      "pip install tensorflow",
+      "pip install --upgrade jax jaxlib==0.1.57+cuda110 -f https://storage.googleapis.com/jax-releases/jax_releases.html",
+      "pip install sagemaker-training",
+      "python3 -m pip install -U --pre \"mxnet-cu110>=2.0.0b20201101\" -f https://dist.mxnet.io/python",
+    ]
     },
     {
     "type": "shell",
     "inline_shebang": "/bin/bash -xe",
     "inline": [
-      "wget -O ~/anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh",
-      "bash ~/anaconda.sh -b -p $HOME/anaconda",
-      "eval \"$($HOME/anaconda/bin/conda shell.bash hook)\"",
-      "conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch",
-      "pip install tensorflow",
-      "pip install sagemaker-training",
-      "conda env create -f /tmp/gluon-toolkits.yml"
+      "source ~/env/nlp-1.0/bin/activate",
+      "git clone https://github.com/dmlc/gluon-nlp.git",
+      "cd gluon-nlp",
+      "pip install -U -e .\"[extras]\""
     ]
-    }
+    },
+    {
+    "type": "shell",
+    "inline_shebang": "/bin/bash -xe",
+    "inline": [
+      "source ~/env/nlp-1.0/bin/activate",
+      "git clone https://github.com/apache/incubator-tvm tvm --recursive",
+      "cd tvm",
+      "mkdir -p build",
+      "cp cmake/config.cmake build",
+      "echo set\(USE_LLVM ON\) >> build/config.cmake",
+      "echo set\(USE_CUDA ON\) >> build/config.cmake",
+      "echo set\(USE_CUDNN ON\) >> build/config.cmake",
+      "echo set\(USE_CUBLAS ON\) >> build/config.cmake",
+      "echo set\(USE_GRAPH_RUNTIME ON\) >> build/config.cmake",
+      "echo set\(USE_BLAS openblas\) >> build/config.cmake",
+      "echo set\(USE_MKL ON\) >> build/config.cmake",
+      "cd build",
+      "cmake .. -G Ninja",
+      "ninja",
+      "cd ../python",
+      "python -m pip install -U -e ."
+    ]
+    },
+    {
+    "type": "shell",
+    "inline_shebang": "/bin/bash -xe",
+    "inline": [
+      "source ~/env/nlp-1.0/bin/activate",
+      "curl -sL https://deb.nodesource.com/setup_14.x | sudo bash - \
+      && sudo apt-get install -y nodejs",
+      "sudo apt-get install -y --no-install-recommends libsndfile1-dev",
+      "pip install --no-cache --upgrade \
+        jupyterlab \
+        tornado \
+        soundfile==0.10.2 \
+        ipywidgets==7.5.1 \
+        jupyter_tensorboard==0.2.0 \
+        widgetsnbextension==3.5.1 \
+        tensorboard==2.1.1 \
+        tensorboardX==2.1",
+      "jupyter labextension install jupyterlab_tensorboard \
+        && jupyter nbextension enable --py widgetsnbextension \
+        && jupyter labextension install @jupyter-widgets/jupyterlab-manager",
+      "jupyter notebook --generate-config -y \
+        && echo \"c.NotebookApp.terminado_settings = { 'shell_command': ['/bin/bash'] }\" >> ~/.jupyter/jupyter_notebook_config.py"
+    ]
+    },
     ]
 }

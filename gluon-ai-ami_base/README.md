@@ -6,9 +6,9 @@ The script to create the Gluon AI Base AMI.
 packer build gluonai-gpu-base-ubuntu1804.yml
 ```
 
-It contains three layers.
+## Primitive Layer
+This contains the basic dependencies.
 
-### Primitive Layer
 - NVIDIA Driver 450.xx
 - CUDA 11
 - NVIDIA Fabric Manager
@@ -19,16 +19,22 @@ It contains three layers.
 - FSx kernel and client driver and utilities
 - Intel OneDNN
 - NVIDIA runtime Docker
-### Application Layer
-- MXNet 
-- PyTorch 
-- TensorFlow
-- Conda
-- Jupyter Lab
-- SageMaker support
-### Gluon Toolkits
-- gluon-nlp
-- gluon-cv
-- gluon-ts
-- autogluon
-- dgl
+
+## Environments
+
+### NLP
+
+To activate the environment
+```
+source ~/env/nlp-1.0/bin/activate
+````
+
+```
+- mxnet (2.0 version)
+- pytorch-1.7
+- deepspeed
+- tensorflow (2.0 version)
+- jupyter lab
+- sagemaker-training
+- gluonnlp-1.0
+```
