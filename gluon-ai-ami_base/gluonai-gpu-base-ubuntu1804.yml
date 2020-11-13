@@ -21,7 +21,7 @@
     },
     "subnet_id": "{{user `subnet_id`}}",
     "security_group_ids": "{{user `security_groupids`}}",
-    "instance_type": "g4dn.8xlarge",
+    "instance_type": "g4dn.4xlarge",
     "ssh_username": "ubuntu",
     "ami_name": "{{user `flag`}}-{{timestamp}}",
     "launch_block_device_mappings":[{
