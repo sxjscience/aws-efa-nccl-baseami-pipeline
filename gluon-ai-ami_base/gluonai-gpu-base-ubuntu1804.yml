@@ -9,7 +9,8 @@
     "nvidia_version": "nvidia-fabricmanager-450",
     "intel_mkl_version": "intel-mkl-2020.0-088",
     "cuda_version": "cuda-drivers-450 cuda-toolkit-11-0",
-    "cudnn_version": "libcudnn8"
+    "cudnn_version": "libcudnn8",
+    "nlp_env": "~/env/nlp",
   },
   "builders": [{
     "type": "amazon-ebs",
@@ -26,7 +27,7 @@
     "launch_block_device_mappings":[{
       "delete_on_termination": true,
       "device_name": "/dev/sda1",
-      "volume_size": 1000,
+      "volume_size": 100,
       "volume_type": "gp2"
     }]
   }],
@@ -200,7 +201,7 @@
       "chmod +x llvm.sh",
       "sudo ./llvm.sh 11",
       "python3 -m venv --system-site-packages env/nlp-1.0",
-      "source ~/env/nlp-1.0/bin/activate",
+      "source {{user `nlp_env`}}/bin/activate",
       "pip install --upgrade pip",
       "pip install ipython",
       "pip install torch==1.7.0+cu110 torchvision==0.8.1+cu110 torchaudio===0.7.0 -f https://download.pytorch.org/whl/torch_stable.html",
@@ -215,7 +216,7 @@
     "type": "shell",
     "inline_shebang": "/bin/bash -xe",
     "inline": [
-      "source ~/env/nlp-1.0/bin/activate",
+      "source {{user `nlp_env`}}/bin/activate",
       "git clone https://github.com/dmlc/gluon-nlp.git",
       "cd gluon-nlp",
       "pip install -U -e .\"[extras]\""
@@ -225,7 +226,7 @@
     "type": "shell",
     "inline_shebang": "/bin/bash -xe",
     "inline": [
-      "source ~/env/nlp-1.0/bin/activate",
+      "source {{user `nlp_env`}}/bin/activate",
       "sudo apt-get install -y libopenblas-dev",
       "git clone https://github.com/apache/incubator-tvm tvm --recursive",
       "cd tvm",
@@ -249,10 +250,10 @@
     "type": "shell",
     "inline_shebang": "/bin/bash -xe",
     "inline": [
-      "source ~/env/nlp-1.0/bin/activate",
+      "source {{user `nlp_env`}}/bin/activate",
       "curl -sL https://deb.nodesource.com/setup_14.x | sudo bash - && sudo apt-get install -y nodejs",
       "sudo apt-get install -y --no-install-recommends libsndfile1-dev",
-      "pip install --upgrade jupyterlab tornado soundfile==0.10.2 ipywidgets==7.5.1 jupyter_tensorboard==0.2.0 widgetsnbextension==3.5.1 tensorboard==2.1.1 tensorboardX==2.1",
+      "pip install jupyterlab tornado soundfile==0.10.2 ipywidgets==7.5.1 jupyter_tensorboard==0.2.0 widgetsnbextension==3.5.1 tensorboard==2.1.1 tensorboardX==2.1",
       "jupyter labextension install jupyterlab_tensorboard && jupyter nbextension enable --py widgetsnbextension && jupyter labextension install @jupyter-widgets/jupyterlab-manager",
       "jupyter notebook --generate-config -y && echo \"c.NotebookApp.terminado_settings = { 'shell_command': ['/bin/bash'] }\" >> ~/.jupyter/jupyter_notebook_config.py"
     ]
@@ -261,7 +262,7 @@
     "type": "shell",
     "inline_shebang": "/bin/bash -xe",
     "inline": [
-      "source ~/env/nlp-1.0/bin/activate",
+      "source {{user `nlp_env`}}/bin/activate",
       "HOROVOD_GPU_ALLREDUCE=NCCL HOROVOD_GPU_BROADCAST=NCCL HOROVOD_WITHOUT_GLOO=1 HOROVOD_WITH_MPI=1 HOROVOD_WITH_MXNET=1 HOROVOD_WITH_PYTORCH=1 HOROVOD_WITHOUT_TENSORFLOW=1 HOROVOD_NCCL_HOME=/opt/nccl/build CUDA_HOME=/usr/local/cuda pip install --no-cache-dir horovod",
       "echo NCCL_DEBUG=INFO >> /etc/nccl.conf"
     ]

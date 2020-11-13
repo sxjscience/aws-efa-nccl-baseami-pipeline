@@ -32,7 +32,7 @@ This contains the basic dependencies.
 
 To activate the environment
 ```
-source ~/env/nlp-1.0/bin/activate
+source ~/env/nlp/bin/activate
 ````
 
 ```
