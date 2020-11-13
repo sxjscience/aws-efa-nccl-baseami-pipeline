@@ -42,9 +42,11 @@ source ~/env/nlp/bin/activate
 - pytorch-1.7
 - deepspeed
 - tensorflow (2.0 version)
+- tensorboard
 - jupyter lab
 - sagemaker-training
 - dmlc/gluonnlp (master version)
 - dmlc/dgl (master version)
 - apache/tvm (master version)
+- jax
 ```
