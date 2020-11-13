@@ -42,6 +42,7 @@ source ~/env/nlp/bin/activate
 - tensorflow (2.0 version)
 - jupyter lab
 - sagemaker-training
-- gluonnlp-1.0
-- tvm
+- dmlc/gluonnlp (master version)
+- dmlc/dgl (master version)
+- apache/tvm (master version)
 ```

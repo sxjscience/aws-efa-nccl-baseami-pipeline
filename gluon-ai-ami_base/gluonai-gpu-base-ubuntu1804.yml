@@ -226,6 +226,18 @@
     "type": "shell",
     "inline_shebang": "/bin/bash -xe",
     "inline": [
+      "sudo apt purge --auto-remove cmake",
+      "mkdir ~/temp && cd ~/temp && version=3.18 build=1 wget https://cmake.org/files/v$version/cmake-$version.$build.tar.gz && tar -xzvf cmake-$version.$build.tar.gz && cd cmake-$version.$build/",
+      "./bootstrap",
+      "make -j$(nproc)",
+      "sudo make install",
+      "rm -rf ~/temp"
+    ]
+    },
+    {
+    "type": "shell",
+    "inline_shebang": "/bin/bash -xe",
+    "inline": [
       "source {{user `nlp_env`}}/bin/activate",
       "sudo apt-get install -y libopenblas-dev",
       "git clone https://github.com/apache/incubator-tvm tvm --recursive",
@@ -266,7 +278,22 @@
       "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/amazon/openmpi/lib:/opt/amazon/efa/lib",
       "export PATH=$PATH:/opt/amazon/efa/bin:/opt/amazon/openmpi/bin",
       "HOROVOD_GPU_OPERATIONS=NCCL HOROVOD_WITHOUT_GLOO=1 HOROVOD_WITH_MPI=1 HOROVOD_WITH_MXNET=1 HOROVOD_WITH_PYTORCH=1 HOROVOD_WITHOUT_TENSORFLOW=1 HOROVOD_NCCL_HOME=/opt/nccl/build CUDA_HOME=/usr/local/cuda pip install --no-cache-dir horovod",
-      "sudo echo NCCL_DEBUG=INFO >> /etc/nccl.conf"
+      "sudo echo NCCL_DEBUG=INFO >> sudo /etc/nccl.conf"
+    ]
+    },
+    {
+    "type": "shell",
+    "inline_shebang": "/bin/bash -xe",
+    "inline": [
+      "source {{user `nlp_env`}}/bin/activate",
+      "git clone --recursive https://github.com/dmlc/dgl.git",
+      "cd dgl",
+      "mkdir build",
+      "cd build",
+      "cmake -DUSE_CUDA=ON ..",
+      "make -j$(nproc)",
+      "cd ../python",
+      "python setup.py develop"
     ]
     }
     ]
