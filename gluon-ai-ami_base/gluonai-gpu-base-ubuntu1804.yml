@@ -21,7 +21,7 @@
     },
     "subnet_id": "{{user `subnet_id`}}",
     "security_group_ids": "{{user `security_groupids`}}",
-    "instance_type": "p3.2xlarge",
+    "instance_type": "g4dn.4xlarge",
     "ssh_username": "ubuntu",
     "ami_name": "{{user `flag`}}-{{timestamp}}",
     "launch_block_device_mappings":[{
@@ -263,7 +263,7 @@
     "inline_shebang": "/bin/bash -xe",
     "inline": [
       "source {{user `nlp_env`}}/bin/activate",
-      "HOROVOD_GPU_ALLREDUCE=NCCL HOROVOD_GPU_BROADCAST=NCCL HOROVOD_WITHOUT_GLOO=1 HOROVOD_WITH_MPI=1 HOROVOD_WITH_MXNET=1 HOROVOD_WITH_PYTORCH=1 HOROVOD_WITHOUT_TENSORFLOW=1 HOROVOD_NCCL_HOME=/opt/nccl/build CUDA_HOME=/usr/local/cuda pip install --no-cache-dir horovod",
+      "HOROVOD_GPU_OPERATIONS=NCCL HOROVOD_WITHOUT_GLOO=1 HOROVOD_WITH_MPI=1 HOROVOD_WITH_MXNET=1 HOROVOD_WITH_PYTORCH=1 HOROVOD_WITHOUT_TENSORFLOW=1 HOROVOD_NCCL_HOME=/opt/nccl/build CUDA_HOME=/usr/local/cuda pip install --no-cache-dir horovod",
       "echo NCCL_DEBUG=INFO >> /etc/nccl.conf"
     ]
     }
