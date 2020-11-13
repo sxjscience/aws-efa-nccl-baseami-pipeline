@@ -9,7 +9,7 @@ packer build gluonai-gpu-base-ubuntu1804.yml
 ## Created AMI
 
 ```
-gluon-ai-gpu-base-ubuntu1804-1605247245
+gluon-ai-gpu-base-ubuntu1804-1605304760
 ```
 
 ## Primitive Layer
