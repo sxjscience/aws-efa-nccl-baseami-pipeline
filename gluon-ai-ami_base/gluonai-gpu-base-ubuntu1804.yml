@@ -195,7 +195,7 @@
     "type": "shell",
     "inline_shebang": "/bin/bash -xe",
     "inline": [
-      "sudo apt-get install python3-venv llvm",
+      "sudo apt-get install -y python3-venv llvm",
       "python3 -m venv --system-site-packages env/nlp-1.0",
       "source ~/env/nlp-1.0/bin/activate",
       "pip install --upgrade pip",
