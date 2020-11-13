@@ -37,4 +37,5 @@ source ~/env/nlp-1.0/bin/activate
 - jupyter lab
 - sagemaker-training
 - gluonnlp-1.0
+- tvm
 ```
