@@ -30,6 +30,8 @@ This contains the basic dependencies.
 
 ### NLP
 
+Install the packages that are suitable for NLP + Graph development.
+
 To activate the environment
 ```
 source ~/env/nlp/bin/activate
