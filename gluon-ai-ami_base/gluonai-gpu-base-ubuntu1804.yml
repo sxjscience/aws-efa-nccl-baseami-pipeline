@@ -266,7 +266,7 @@
       "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/amazon/openmpi/lib:/opt/amazon/efa/lib",
       "export PATH=$PATH:/opt/amazon/efa/bin:/opt/amazon/openmpi/bin",
       "HOROVOD_GPU_OPERATIONS=NCCL HOROVOD_WITHOUT_GLOO=1 HOROVOD_WITH_MPI=1 HOROVOD_WITH_MXNET=1 HOROVOD_WITH_PYTORCH=1 HOROVOD_WITHOUT_TENSORFLOW=1 HOROVOD_NCCL_HOME=/opt/nccl/build CUDA_HOME=/usr/local/cuda pip install --no-cache-dir horovod",
-      "echo NCCL_DEBUG=INFO >> /etc/nccl.conf"
+      "sudo echo NCCL_DEBUG=INFO >> /etc/nccl.conf"
     ]
     }
     ]
