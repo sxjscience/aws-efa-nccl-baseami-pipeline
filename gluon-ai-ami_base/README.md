@@ -6,6 +6,12 @@ The script to create the Gluon AI Base AMI.
 packer build gluonai-gpu-base-ubuntu1804.yml
 ```
 
+## Created AMI
+
+```
+gluon-ai-gpu-base-ubuntu1804-1605247245
+```
+
 ## Primitive Layer
 This contains the basic dependencies.
 
