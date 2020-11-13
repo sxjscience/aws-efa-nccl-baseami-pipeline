@@ -263,7 +263,7 @@
     "inline_shebang": "/bin/bash -xe",
     "inline": [
       "source {{user `nlp_env`}}/bin/activate",
-      "HOROVOD_GPU_OPERATIONS=NCCL HOROVOD_WITHOUT_GLOO=1 HOROVOD_WITH_MPI=1 HOROVOD_WITH_MXNET=1 HOROVOD_WITH_PYTORCH=1 HOROVOD_WITHOUT_TENSORFLOW=1 HOROVOD_NCCL_HOME=/opt/nccl/build CUDA_HOME=/usr/local/cuda pip install --no-cache-dir horovod",
+      "MPI_CXX=/opt/amazon/openmpi/bin/mpicxx MPI_CC=/opt/amazon/openmpi/bin/mpicc HOROVOD_GPU_OPERATIONS=NCCL HOROVOD_WITHOUT_GLOO=1 HOROVOD_WITH_MPI=1 HOROVOD_WITH_MXNET=1 HOROVOD_WITH_PYTORCH=1 HOROVOD_WITHOUT_TENSORFLOW=1 HOROVOD_NCCL_HOME=/opt/nccl/build CUDA_HOME=/usr/local/cuda pip install --no-cache-dir horovod",
       "echo NCCL_DEBUG=INFO >> /etc/nccl.conf"
     ]
     }
