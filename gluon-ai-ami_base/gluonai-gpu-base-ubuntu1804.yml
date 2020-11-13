@@ -200,7 +200,7 @@
       "wget https://apt.llvm.org/llvm.sh",
       "chmod +x llvm.sh",
       "sudo ./llvm.sh 11",
-      "python3 -m venv --system-site-packages env/nlp-1.0",
+      "python3 -m venv --system-site-packages {{user `nlp_env`}}",
       "source {{user `nlp_env`}}/bin/activate",
       "pip install --upgrade pip",
       "pip install ipython",
