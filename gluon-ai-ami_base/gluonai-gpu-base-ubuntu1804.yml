@@ -10,7 +10,7 @@
     "intel_mkl_version": "intel-mkl-2020.0-088",
     "cuda_version": "cuda-drivers-450 cuda-toolkit-11-0",
     "cudnn_version": "libcudnn8",
-    "nlp_env": "~/env/nlp",
+    "nlp_env": "~/env/nlp"
   },
   "builders": [{
     "type": "amazon-ebs",
