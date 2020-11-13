@@ -219,6 +219,7 @@
       "source {{user `nlp_env`}}/bin/activate",
       "git clone https://github.com/dmlc/gluon-nlp.git",
       "cd gluon-nlp",
+      "git checkout master",
       "pip install -U -e .\"[extras]\""
     ]
     },
