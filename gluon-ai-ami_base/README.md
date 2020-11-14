@@ -10,7 +10,7 @@ packer build gluonai-gpu-base-ubuntu1804.yml
 
 ```
 Name: gluon-ai-gpu-base-ubuntu1804-1605338100
-AMI ID: ami-0bdad81e64a1086f0
+AMI ID: ami-0c3f624d0342245b9
 ```
 
 ## Primitive Layer
