@@ -9,7 +9,7 @@ packer build gluonai-gpu-base-ubuntu1804.yml
 ## Created AMI
 
 ```
-Name: gluon-ai-gpu-base-ubuntu1804-1605304760
+Name: gluon-ai-gpu-base-ubuntu1804-1605338100
 AMI ID: ami-0bdad81e64a1086f0
 ```
 
