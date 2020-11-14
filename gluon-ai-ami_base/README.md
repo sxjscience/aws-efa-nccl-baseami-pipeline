@@ -44,10 +44,12 @@ source ~/env/nlp/bin/activate
 - deepspeed
 - tensorflow (2.0 version)
 - tensorboard
-- jupyter lab
+- Jupyter Lab
 - sagemaker-training
 - dmlc/gluonnlp (master version)
 - dmlc/dgl (master version)
 - apache/tvm (master version)
 - jax
+- cupy
+- matplotlib
 ```
