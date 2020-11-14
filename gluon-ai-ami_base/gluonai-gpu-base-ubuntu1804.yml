@@ -227,21 +227,6 @@
     "type": "shell",
     "inline_shebang": "/bin/bash -xe",
     "inline": [
-      "sudo apt purge -y --auto-remove cmake",
-      "sudo apt-get install -y libssl-dev",
-      "wget https://cmake.org/files/v3.18/cmake-3.18.1.tar.gz",
-      "tar -xzvf cmake-3.18.1.tar.gz",
-      "cd cmake-3.18.1",
-      "./bootstrap",
-      "make -j$(nproc)",
-      "sudo make install",
-      "rm -rf ~/temp"
-    ]
-    },
-    {
-    "type": "shell",
-    "inline_shebang": "/bin/bash -xe",
-    "inline": [
       "source {{user `nlp_env`}}/bin/activate",
       "sudo apt-get install -y libopenblas-dev",
       "git clone https://github.com/apache/incubator-tvm tvm --recursive",
@@ -283,6 +268,21 @@
       "export PATH=$PATH:/opt/amazon/efa/bin:/opt/amazon/openmpi/bin",
       "HOROVOD_GPU_OPERATIONS=NCCL HOROVOD_WITHOUT_GLOO=1 HOROVOD_WITH_MPI=1 HOROVOD_WITH_MXNET=1 HOROVOD_WITH_PYTORCH=1 HOROVOD_WITHOUT_TENSORFLOW=1 HOROVOD_NCCL_HOME=/opt/nccl/build CUDA_HOME=/usr/local/cuda pip install --no-cache-dir horovod",
       "sudo echo NCCL_DEBUG=INFO >> sudo /etc/nccl.conf"
+    ]
+    },
+    {
+    "type": "shell",
+    "inline_shebang": "/bin/bash -xe",
+    "inline": [
+      "sudo apt purge -y --auto-remove cmake",
+      "sudo apt-get install -y libssl-dev",
+      "wget https://cmake.org/files/v3.18/cmake-3.18.1.tar.gz",
+      "tar -xzvf cmake-3.18.1.tar.gz",
+      "cd cmake-3.18.1",
+      "./bootstrap",
+      "make -j$(nproc)",
+      "sudo make install",
+      "rm -rf ~/temp"
     ]
     },
     {
