@@ -53,3 +53,21 @@ source ~/env/nlp/bin/activate
 - cupy
 - matplotlib
 ```
+
+#### Example 1: SQuAD 2.0 Finetuning with ALBERT-base
+
+```
+source ~/env/nlp/bin/activate
+cd gluon-nlp/scripts/question_answering/
+bash commands/run_squad2_albert_base.sh 1 2.0 float16
+```
+
+This should give you a model with best F1/best EM = 82.44%/79.65%.
+
+
+#### Example 2: Running Jupyter Lab Development Environment
+
+```
+source ~/env/nlp/bin/activate
+jupyter lab
+```
