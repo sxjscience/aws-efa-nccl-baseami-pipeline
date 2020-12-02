@@ -4,7 +4,7 @@
     "flag": "gluon-ai-gpu-base-ubuntu1804",
     "subnet_id": "subnet-1226ea1c",
     "security_groupids": "sg-e282bbb5",
-    "build_ami": "ami-00ddb0e5626798373",
+    "build_ami": "ami-01c132a30955dafbb",
     "efa_pkg": "aws-efa-installer-latest.tar.gz",
     "nvidia_version": "nvidia-fabricmanager-450",
     "intel_mkl_version": "intel-mkl-2020.0-088",
