@@ -36,6 +36,7 @@
     "expect_disconnect": true,
     "inline": [
       "echo 'GRUB_CMDLINE_LINUX='intel_idle.max_cstate=1'' | sudo tee -a /etc/default/grub",
+      "echo 'nameserver 169.254.169.253' | sudo tee -a /etc/resolv.conf",
       "wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | sudo apt-key add -",
       "echo 'deb https://fsx-lustre-client-repo.s3.amazonaws.com/ubuntu bionic main' | sudo tee /etc/apt/sources.list.d/fsxlustreclientrepo.list",
       "uname -r",
